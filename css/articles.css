@@ -1,0 +1,96 @@
+/* ============================================
+   Articles Page Styles
+   ============================================ */
+
+/* --- Tag Filter Bar --- */
+.tag-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.tag-filter::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tag-filter::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tag-filter::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.tag-filter__btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 2px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-speed) ease;
+  font-family: inherit;
+}
+
+.tag-filter__btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tag-filter__btn--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.tag-filter__btn--active:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #fff;
+}
+
+/* --- Articles Count --- */
+.articles-count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* --- No Results --- */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  display: none;
+}
+
+.no-results--visible {
+  display: block;
+}
+
+.no-results__title {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.no-results__text {
+  color: var(--text-muted);
+}
+
+/* --- Article Card Enhancements for Articles Page --- */
+.articles-page .article-card {
+  transition: all var(--transition-speed) ease;
+}
+
+.articles-page .article-card[data-hidden="true"] {
+  display: none;
+}

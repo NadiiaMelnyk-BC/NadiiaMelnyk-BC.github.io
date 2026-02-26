@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Articles — Nadiia Melnyk</title>
+  <meta name="description" content="Articles on Microsoft Dynamics 365 Business Central, AL development, ERP migrations, and more by Nadiia Melnyk.">
+  <link rel="canonical" href="https://nadiiamelnyk-bc.github.io/articles.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Articles — Nadiia Melnyk">
+  <meta property="og:description" content="Articles on Microsoft Dynamics 365 Business Central, AL development, ERP migrations, and more.">
+  <meta property="og:url" content="https://nadiiamelnyk-bc.github.io/articles.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/articles.css">
+</head>
+<body>
+  <a href="#main" class="skip-nav">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Nadiia Melnyk home">NM</a>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </button>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="articles.html" class="nav__link nav__link--active">Articles</a></li>
+        <li><a href="links.html" class="nav__link">Links</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+        <li>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" fill="currentColor"/></svg>
+          </button>
+        </li>
+      </ul>
+      <div class="nav__right">
+        <button class="theme-toggle theme-toggle--mobile" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Articles</h1>
+      <p>Practical guides and insights on Business Central, AL development, and ERP migrations.</p>
+    </div>
+  </header>
+
+  <main id="main" class="articles-page">
+    <div class="container">
+      <!-- Tag Filter -->
+      <!-- TAGS-START -->
+      <div class="tag-filter" role="toolbar" aria-label="Filter articles by tag">
+        <button class="tag-filter__btn tag-filter__btn--active" data-tag="all">All</button>
+      </div>
+      <!-- TAGS-END -->
+
+      <!-- Articles Grid -->
+      <!-- ARTICLES-START -->
+      <div class="articles-grid">
+        <div class="empty-state">
+          <div class="empty-state__icon" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V9a2 2 0 012-2h2a2 2 0 012 2v9a2 2 0 01-2 2h-2z"/></svg>
+          </div>
+          <h3 class="empty-state__title">No articles yet</h3>
+          <p class="empty-state__text">Articles on Business Central development, AL programming, and ERP migration are on the way. Check back soon.</p>
+        </div>
+      </div>
+      <!-- ARTICLES-END -->
+
+      <!-- No Results (for tag filtering) -->
+      <div class="no-results" aria-live="polite">
+        <h3 class="no-results__title">No articles found</h3>
+        <p class="no-results__text">No articles match the selected tag. Try selecting a different tag or view all articles.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 Nadiia Melnyk. Built with care.</p>
+      <ul class="footer__links" role="list">
+        <li><a href="https://github.com/NadiiaMelnyk-BC" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/nadiia-melnyk-bc" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/tag-filter.js"></script>
+  <script>
+    (function() {
+      var hamburger = document.querySelector('.nav__hamburger');
+      var navLinks = document.querySelector('.nav__links');
+      if (!hamburger || !navLinks) return;
+      hamburger.addEventListener('click', function() {
+        var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+        navLinks.classList.toggle('nav__links--open');
+      });
+      var mobileToggle = document.querySelector('.theme-toggle--mobile');
+      if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+          var current = document.documentElement.getAttribute('data-theme') || 'light';
+          var next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme-preference', next); } catch(e) {}
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
