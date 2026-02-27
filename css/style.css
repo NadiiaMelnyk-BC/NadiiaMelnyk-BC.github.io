@@ -279,6 +279,12 @@ p {
 .nav__hamburger[aria-expanded="true"] .icon-menu { display: none; }
 .nav__hamburger[aria-expanded="true"] .icon-close { display: block; }
 
+/* Nav Right (theme toggle container) */
+.nav__right {
+  display: flex;
+  align-items: center;
+}
+
 /* --- Hero Section --- */
 .hero {
   background: var(--hero-gradient);
@@ -818,12 +824,6 @@ p {
 
   .nav__hamburger {
     display: flex;
-  }
-
-  .nav__right {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
 
   .hero {
