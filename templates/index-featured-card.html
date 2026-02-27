@@ -1,0 +1,14 @@
+<div class="card">
+  <article class="article-card">
+    <time class="article-card__date" datetime="{{date}}">{{date_formatted}}</time>
+    <h3 class="article-card__title"><a href="posts/{{slug}}.html">{{title}}</a></h3>
+    <div class="article-card__tags">
+      {{tags_badges}}
+    </div>
+    <p class="article-card__excerpt">{{excerpt}}</p>
+    <div class="article-card__footer">
+      <a href="posts/{{slug}}.html" class="article-card__read-more">Read more &rarr;</a>
+      <span class="article-card__meta">{{readTime}} read</span>
+    </div>
+  </article>
+</div>

@@ -1,0 +1,13 @@
+{
+  "name": "nadiiamelnyk-bc.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal website and blog — Nadiia Melnyk, BC/NAV Developer & ERP Migration Specialist",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "front-matter": "^4.0.2",
+    "marked": "^15.0.0"
+  }
+}
