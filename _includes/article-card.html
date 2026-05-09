@@ -1,0 +1,32 @@
+{%- comment -%}
+  Article card. Pass `post` (a Jekyll post object).
+  Optional `with_image` (default true) toggles the cover.
+{%- endcomment -%}
+{%- assign with_image = include.with_image | default: true -%}
+<a class="article-card" href="{{ include.post.url | relative_url }}">
+  {%- if with_image -%}
+    {%- if include.post.cover -%}
+      <img class="cover" src="{{ include.post.cover | relative_url }}" alt="" style="height:170px;object-fit:cover;width:100%;">
+    {%- else -%}
+      <div class="placeholder cover"><span class="ph-tag">cover image</span></div>
+    {%- endif -%}
+  {%- endif -%}
+  <div class="body-col">
+    <div class="meta">
+      {%- for tag_slug in include.post.tags -%}
+        {%- assign tag_def = site.data.tags | where: 'slug', tag_slug | first -%}
+        {%- if tag_def -%}
+          <span class="tag {% if forloop.first %}blue{% endif %}">{{ tag_def.label }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+      <span class="micro date">{{ include.post.date | date: "%b %d" }} · {{ include.post.read_time | default: include.post.content | number_of_words | divided_by: 200 | plus: 1 }} min</span>
+    </div>
+    <div class="h4" style="line-height:1.25;">{{ include.post.title }}</div>
+    {%- if include.post.excerpt_short -%}
+      <div class="small" style="color:var(--ink-3);">{{ include.post.excerpt_short }}</div>
+    {%- elsif include.post.excerpt -%}
+      <div class="small" style="color:var(--ink-3);">{{ include.post.excerpt | strip_html | truncatewords: 24 }}</div>
+    {%- endif -%}
+    <div class="read-more">Read article →</div>
+  </div>
+</a>

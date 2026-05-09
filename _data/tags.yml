@@ -1,0 +1,39 @@
+# Tag taxonomy. The `slug` is what you put in a post's front-matter `tags:`.
+# The `label` is what shows on cards and chips. The `description` is shown
+# at the top of /tags/ and /writing/?tag=xxx (when filtered).
+#
+# Adding a tag here is what makes it appear in the filter bar on /writing/.
+# When you add a new tag, also add it to _authoring/tag-taxonomy.md so the
+# definition stays canonical.
+
+- slug: migration
+  label: Migration
+  description: NAV-to-BC upgrades, version jumps, and the runbooks behind them.
+
+- slug: al-dev
+  label: AL Dev
+  description: AL extension patterns, language features, and tooling.
+
+- slug: architecture
+  label: Architecture
+  description: Solution design, deployment models, and structural decisions.
+
+- slug: field-report
+  label: Field Report
+  description: First-person accounts of real projects — what worked, what didn't.
+
+- slug: tutorial
+  label: Tutorial
+  description: Step-by-step walkthroughs of a specific technique or feature.
+
+- slug: opinion
+  label: Opinion
+  description: Takes on the BC ecosystem, partner channel, and industry shifts.
+
+- slug: nav
+  label: NAV
+  description: Legacy NAV (C/AL) topics — usually as the starting point of a migration story.
+
+- slug: operations
+  label: Operations
+  description: Telemetry, debugging, monitoring, and running BC tenants in production.

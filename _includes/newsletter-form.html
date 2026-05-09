@@ -1,0 +1,56 @@
+{%- comment -%}
+  Buttondown subscribe form.
+
+  Params:
+    size = "lg" (homepage hero, white-on-ink) or "sm" (footer)
+    tag  = subscriber tag passed to Buttondown for source tracking
+           (e.g. "homepage-hero", "footer")
+
+  Visibility is gated by site.newsletter.enabled in _config.yml. When
+  disabled, this include renders nothing — wrappers in calling templates
+  hide the surrounding banner/column.
+{%- endcomment -%}
+{%- if site.newsletter.enabled -%}
+{%- assign size = include.size | default: 'lg' -%}
+{%- assign source_tag = include.tag | default: 'site' -%}
+{%- assign username = site.newsletter.username -%}
+
+{%- if username and username != "" -%}
+  {%- assign action = "https://buttondown.email/api/emails/embed-subscribe/" | append: username -%}
+  {%- assign profile = "https://buttondown.email/" | append: username -%}
+  {%- if size == "lg" -%}
+    <form class="form"
+          action="{{ action }}"
+          method="post"
+          {% if site.newsletter.popup %}target="popupwindow"
+          onsubmit="window.open('{{ profile }}', 'popupwindow')"{% endif %}>
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+      <input type="hidden" name="tag" value="{{ source_tag }}">
+      <button class="btn lg" type="submit" style="background:var(--paper);color:var(--ink);border-color:var(--paper);">Subscribe</button>
+    </form>
+  {%- else -%}
+    <form class="subscribe-mini"
+          action="{{ action }}"
+          method="post"
+          {% if site.newsletter.popup %}target="popupwindow"
+          onsubmit="window.open('{{ profile }}', 'popupwindow')"{% endif %}
+          style="display:flex;gap:6px;margin-top:6px;">
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address" style="flex:1;padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12px;background:var(--paper);color:var(--ink-2);font-family:inherit;">
+      <input type="hidden" name="tag" value="{{ source_tag }}">
+      <button class="btn sm blue" type="submit">Join</button>
+    </form>
+  {%- endif -%}
+{%- else -%}
+  {%- if size == "lg" -%}
+    <form class="form" onsubmit="event.preventDefault();" aria-label="Newsletter signup (coming soon)">
+      <input type="email" placeholder="your@email.com" disabled>
+      <button class="btn lg" type="button" disabled style="background:var(--paper);color:var(--ink);border-color:var(--paper);opacity:.6;cursor:not-allowed;" title="Newsletter sign-up opens soon">Coming soon</button>
+    </form>
+  {%- else -%}
+    <form class="subscribe-mini" onsubmit="event.preventDefault();" style="display:flex;gap:6px;margin-top:6px;" aria-label="Newsletter signup (coming soon)">
+      <input type="email" placeholder="your@email.com" disabled style="flex:1;padding:7px 10px;border:1px solid var(--line);border-radius:6px;font-size:12px;background:var(--paper-2);color:var(--ink-4);font-family:inherit;">
+      <button class="btn sm" type="button" disabled style="opacity:.6;cursor:not-allowed;">Soon</button>
+    </form>
+  {%- endif -%}
+{%- endif -%}
+{%- endif -%}

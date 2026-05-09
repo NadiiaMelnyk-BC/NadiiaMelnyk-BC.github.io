@@ -1,0 +1,111 @@
+---
+layout: page
+title: Writing
+permalink: /writing/
+tag_filter: true
+---
+
+{%- assign post_count = site.posts | size -%}
+{%- assign featured = site.posts | where: 'featured', true | first -%}
+{%- if featured == nil -%}{%- assign featured = site.posts | first -%}{%- endif -%}
+
+<section class="page-hero">
+  <div class="eyebrow blue" style="margin-bottom:14px;">Writing · {{ post_count }} {% if post_count == 1 %}essay{% else %}essays{% endif %}</div>
+  <h1 class="h1 serif" style="font-size:64px;max-width:780px;">
+    Notes from the Business Central trenches.
+  </h1>
+  <p class="lead" style="max-width:600px;margin-top:20px;">
+    Long-form essays, field reports, and opinion pieces on BC migrations, AL development, and the messy reality of mid-market ERP work.
+  </p>
+</section>
+
+<div class="filter-bar">
+  <div class="inner">
+    <a class="tag solid" data-filter-tag="all">All ({{ post_count }})</a>
+    {%- for tag in site.data.tags -%}
+      {%- assign matched = site.posts | where_exp: 'p', 'p.tags contains tag.slug' -%}
+      {%- if matched.size > 0 -%}
+        <a class="tag" data-filter-tag="{{ tag.slug }}">{{ tag.label }} ({{ matched.size }})</a>
+      {%- endif -%}
+    {%- endfor -%}
+    <div class="search">
+      <span style="font-family:var(--mono);">⌕</span>
+      <input type="search" placeholder="Search articles…" data-filter-search>
+    </div>
+  </div>
+</div>
+
+{%- if featured -%}
+<section class="page-hero" style="padding-top:56px;padding-bottom:32px;">
+  <div class="eyebrow" style="margin-bottom:18px;">Featured</div>
+  <a class="card featured-card" href="{{ featured.url | relative_url }}" style="text-decoration:none;color:inherit;display:grid;">
+    {%- if featured.cover -%}
+      <img class="cover" src="{{ featured.cover | relative_url }}" alt="" style="min-height:300px;object-fit:cover;width:100%;border-right:1px solid var(--line);">
+    {%- else -%}
+      <div class="placeholder cover"><span class="ph-tag">cover image</span></div>
+    {%- endif -%}
+    <div class="body-col">
+      <div class="meta-row" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        {%- for tag_slug in featured.tags -%}
+          {%- assign tag_def = site.data.tags | where: 'slug', tag_slug | first -%}
+          {%- if tag_def -%}
+            <span class="tag {% if forloop.first %}blue{% endif %}">{{ tag_def.label }}</span>
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign words = featured.content | number_of_words -%}
+        <span class="micro" style="margin-left:6px;">{{ featured.date | date: "%b %-d" }} · {{ words | divided_by: 200 | plus: 1 }} min</span>
+      </div>
+      <h2 class="h2 serif" style="font-size:32px;">{{ featured.title }}</h2>
+      {%- if featured.lead -%}<p class="body" style="color:var(--ink-3);">{{ featured.lead }}</p>{%- endif -%}
+      <div style="margin-top:auto;display:flex;align-items:center;gap:12px;">
+        <span class="avatar dark" style="width:32px;height:32px;font-size:10px;">{{ site.data.author.initials }}</span>
+        <span style="font-size:13.5px;">{{ site.data.author.name }}</span>
+        <span class="btn sm primary" style="margin-left:auto;">Read essay →</span>
+      </div>
+    </div>
+  </a>
+</section>
+{%- endif -%}
+
+<section class="page-hero" style="padding-top:24px;padding-bottom:80px;">
+  <div class="eyebrow" style="margin-bottom:8px;">All essays</div>
+
+  <div>
+    {%- for post in site.posts -%}
+      {%- assign words = post.content | number_of_words -%}
+      {%- assign read_time = words | divided_by: 200 | plus: 1 -%}
+      <div class="list-row" data-tags="{{ post.tags | join: ',' }}" data-title="{{ post.title | downcase | escape }}">
+        <span class="micro" style="font-family:var(--mono);">{{ post.date | date: "%b %d" }}</span>
+        <div>
+          <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
+            {%- for tag_slug in post.tags -%}
+              {%- assign tag_def = site.data.tags | where: 'slug', tag_slug | first -%}
+              {%- if tag_def -%}
+                <a class="tag {% if forloop.first %}blue{% endif %}" data-filter-tag="{{ tag_def.slug }}">{{ tag_def.label }}</a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+          <a class="row-title" href="{{ post.url | relative_url }}" style="text-decoration:none;">
+            <div class="h4" style="margin-bottom:4px;">{{ post.title }}</div>
+            {%- if post.lead -%}
+              <div class="small" style="color:var(--ink-3);">{{ post.lead | truncatewords: 24 }}</div>
+            {%- elsif post.excerpt -%}
+              <div class="small" style="color:var(--ink-3);">{{ post.excerpt | strip_html | truncatewords: 24 }}</div>
+            {%- endif -%}
+          </a>
+        </div>
+        <a class="read-time" href="{{ post.url | relative_url }}" style="text-decoration:none;">{{ read_time }} MIN →</a>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  <div data-filter-empty style="display:none;padding:48px 0;text-align:center;color:var(--ink-4);">
+    <p>No articles match that filter.</p>
+  </div>
+
+  {%- if site.posts.size == 0 -%}
+    <div style="padding:48px 0;text-align:center;color:var(--ink-4);">
+      <p>No essays published yet. The first one is on its way.</p>
+    </div>
+  {%- endif -%}
+</section>

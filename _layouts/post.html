@@ -1,0 +1,116 @@
+---
+layout: default
+---
+{%- assign words = page.content | number_of_words -%}
+{%- assign read_time = page.read_time | default: words | divided_by: 200 | plus: 1 -%}
+
+<article>
+  <header class="post-hero">
+    <a class="back-link" href="{{ '/writing/' | relative_url }}">← Back to writing</a>
+
+    <div class="meta-row">
+      {%- for tag_slug in page.tags -%}
+        {%- assign tag_def = site.data.tags | where: 'slug', tag_slug | first -%}
+        {%- if tag_def -%}
+          <a class="tag {% if forloop.first %}blue{% endif %}" href="{{ '/writing/' | relative_url }}?tag={{ tag_def.slug }}">{{ tag_def.label }}</a>
+        {%- endif -%}
+      {%- endfor -%}
+      <span class="micro" style="margin-left:6px;">{{ page.date | date: "%b %-d, %Y" }} · {{ read_time }} min read</span>
+    </div>
+
+    <h1 class="h1 serif">{{ page.title }}</h1>
+    {%- if page.lead -%}
+      <p class="lead">{{ page.lead }}</p>
+    {%- endif -%}
+
+    <div class="author-bar">
+      <span class="avatar dark" style="width:42px;height:42px;font-size:12px;">{{ site.data.author.initials }}</span>
+      <div>
+        <div class="name">{{ site.data.author.name }}</div>
+        <div class="micro">{{ site.data.author.role }}</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="post-body-grid">
+    {%- if page.toc != false -%}
+      <aside class="post-toc" data-toc>
+        <div class="eyebrow" style="margin-bottom:12px;">Contents</div>
+        <div class="links" data-toc-list></div>
+      </aside>
+    {%- else -%}
+      <aside></aside>
+    {%- endif -%}
+
+    <div class="post-body">
+      {%- if page.cover -%}
+        <img src="{{ page.cover | relative_url }}" alt="" class="cover-image" style="width:100%;object-fit:cover;border-radius:var(--radius);">
+      {%- else -%}
+        <div class="placeholder cover-image"><span class="ph-tag">cover image</span></div>
+      {%- endif -%}
+
+      {{ content }}
+
+      <div class="filed-under">
+        <span class="eyebrow" style="margin-right:6px;">Filed under</span>
+        {%- for tag_slug in page.tags -%}
+          {%- assign tag_def = site.data.tags | where: 'slug', tag_slug | first -%}
+          {%- if tag_def -%}
+            <a class="tag {% if forloop.first %}blue{% endif %}" href="{{ '/writing/' | relative_url }}?tag={{ tag_def.slug }}">{{ tag_def.label }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</article>
+
+{%- comment -%} Related posts: same first tag, exclude self, up to 3. {%- endcomment -%}
+{%- assign primary_tag = page.tags | first -%}
+{%- assign related = '' | split: '' -%}
+{%- for post in site.posts -%}
+  {%- if post.url != page.url and post.tags contains primary_tag -%}
+    {%- assign related = related | push: post -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign related = related | slice: 0, 3 -%}
+
+{%- if related.size > 0 -%}
+<section class="related-block">
+  <div class="inner">
+    <div class="eyebrow blue" style="margin-bottom:10px;">Related reading</div>
+    <h2 class="h2 serif" style="font-size:30px;margin-bottom:28px;">You might also like</h2>
+    <div class="related-grid">
+      {%- for post in related -%}
+        {%- include article-card.html post=post -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{%- if page.comments and site.giscus.enabled -%}
+<section class="comments-block">
+  <div class="header">
+    <div>
+      <div class="eyebrow blue" style="margin-bottom:8px;">Discussion</div>
+      <h2 class="h2 serif" style="font-size:32px;">Comments</h2>
+    </div>
+  </div>
+
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.giscus.repo }}"
+    data-repo-id="{{ site.giscus.repo_id }}"
+    data-category="{{ site.giscus.category }}"
+    data-category-id="{{ site.giscus.category_id }}"
+    data-mapping="{{ site.giscus.mapping }}"
+    data-strict="0"
+    data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+    data-emit-metadata="{{ site.giscus.emit_metadata }}"
+    data-input-position="top"
+    data-theme="{{ site.giscus.theme }}"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+</section>
+{%- endif -%}

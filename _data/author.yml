@@ -1,0 +1,19 @@
+name: Nadiia Melnyk
+initials: NM
+role: BC Developer & Migration Specialist
+short_bio: >-
+  Microsoft Dynamics 365 Business Central developer & migration specialist.
+  Independent consultant, available worldwide.
+location: Austria
+hours: CET / overlap with US East
+languages: Ukrainian (Native), English (B2), German (A1)
+
+links:
+  email: nadiia@example.com
+  linkedin_url: https://www.linkedin.com/in/nadiia-melnyk-bc
+  linkedin_handle: /in/nadiia-melnyk-bc
+  github_url: https://github.com/NadiiaMelnyk-BC
+  github_handle: "@NadiiaMelnyk-BC"
+
+# Path to CV file in /assets/files/. Drop the file there and update the name.
+cv_path: /assets/files/Nadiia_Melnyk_CV.pdf

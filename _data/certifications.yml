@@ -1,0 +1,37 @@
+# Microsoft certifications shown on the About page. Each links to its
+# verification page on Microsoft Learn — set `verify_url` per cert.
+
+- code: MB-820
+  name: Dynamics 365 Business Central Developer Associate
+  year: "2024"
+  verify_url: ""
+
+- code: MB-800
+  name: Dynamics 365 Business Central Functional Consultant Associate
+  year: "2023"
+  verify_url: ""
+
+- code: MB-700
+  name: "Dynamics 365: Finance and Operations Apps Solution Architect"
+  year: "2023"
+  verify_url: ""
+
+- code: MB-500
+  name: "Dynamics 365: Finance and Operations Apps Developer Associate"
+  year: "2022"
+  verify_url: ""
+
+- code: AZ-204
+  name: Developing Solutions for Microsoft Azure
+  year: "2022"
+  verify_url: ""
+
+- code: AZ-900
+  name: Microsoft Azure Fundamentals
+  year: "2021"
+  verify_url: ""
+
+- code: MB-300
+  name: "Microsoft Dynamics 365: Core Finance and Operations"
+  year: "2020"
+  verify_url: ""

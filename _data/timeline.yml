@@ -1,0 +1,18 @@
+# "How I got here" — career timeline on the About page.
+# Most-recent first. `when` is rendered as-is (string).
+
+- when: "2024 —"
+  role: Independent
+  desc: Writing, AL extension work for ISVs, occasional rescue projects.
+
+- when: "2018 – 2023"
+  role: "Senior BC Developer · Nordic Partner"
+  desc: 11 BC migrations across manufacturing, food production, logistics. Tech lead on 4 of them.
+
+- when: "2014 – 2018"
+  role: "NAV Developer · Kyiv"
+  desc: Full-cycle implementations on NAV 2013 / 2016 / 2017. First taste of upgrade work.
+
+- when: "2014"
+  role: Began with Dynamics NAV 2009 R2
+  desc: Manufacturing implementation that ran for three years.

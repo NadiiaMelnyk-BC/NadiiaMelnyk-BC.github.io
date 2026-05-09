@@ -1,0 +1,7 @@
+# Top navigation links. Order matters.
+- label: Home
+  url: /
+- label: Writing
+  url: /writing/
+- label: About
+  url: /about/

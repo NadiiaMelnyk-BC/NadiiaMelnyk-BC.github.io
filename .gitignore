@@ -1,2 +1,26 @@
-node_modules/
+# Jekyll build output
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Bundler
+vendor/
+.bundle/
+Gemfile.lock
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# Node (only present if you ever add a build tool)
+node_modules/
+
+# AL Test Runner VS Code extension — local-only config
+.altestrunner/

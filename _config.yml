@@ -1,0 +1,95 @@
+title: Nadiia Melnyk
+tagline: BC Developer & Migration Specialist
+description: >-
+  Field notes from a decade inside Microsoft Dynamics 365 Business Central.
+  A working archive of migrations, AL extensions, and the messy reality of
+  mid-market ERP work.
+url: https://nadiiamelnyk-bc.github.io
+baseurl: ""
+author:
+  name: Nadiia Melnyk
+  email: nadiia@example.com
+  github: NadiiaMelnyk-BC
+  linkedin: nadiia-melnyk-bc
+
+permalink: /writing/:slug/
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+  toc_levels: "2..3"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/writing/page:num/"
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - _authoring
+  - .gitignore
+  - "*.log"
+
+# Comments — Giscus (GitHub Discussions). Fill these in once you create
+# a Discussions repo and enable Giscus at https://giscus.app
+giscus:
+  enabled: false
+  repo: NadiiaMelnyk-BC/NadiiaMelnyk-BC.github.io
+  repo_id: ""
+  category: Comments
+  category_id: ""
+  mapping: pathname
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  theme: light
+
+# Newsletter — Buttondown (https://buttondown.email).
+# To turn it on:
+# 1. Sign up for a free account at Buttondown.
+# 2. Your username is the bit after buttondown.email/ on your dashboard URL.
+# 3. Fill `username` and flip `enabled` to true. Forms appear automatically
+#    on the homepage hero and in the footer.
+newsletter:
+  enabled: false           # flip to true once `username` is set
+  provider: buttondown
+  username: ""             # e.g. "nadiiamelnyk"
+  popup: true              # opens Buttondown's confirm page in a popup window
+                           # (set false to redirect the whole page)
+
+# Contact form — Formspree (https://formspree.io).
+# To turn it on:
+# 1. Sign up, create a new form, name it "Contact".
+# 2. Copy the form ID — the bit after /f/ in the form's endpoint URL
+#    (e.g. https://formspree.io/f/xyzabcde → form_id is "xyzabcde").
+# 3. Fill `form_id` and flip `enabled` to true. The contact page swaps the
+#    email/links-only layout for the full form automatically.
+contact_form:
+  enabled: false           # flip to true once `form_id` is set
+  provider: formspree
+  form_id: ""              # e.g. "xyzabcde"
+  redirect_after: ""       # optional: full URL to redirect to after submit
+                           # (e.g. "https://nadiiamelnyk-bc.github.io/contact/?sent=1")

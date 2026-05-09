@@ -1,0 +1,44 @@
+{%- if site.newsletter.enabled -%}
+  {%- assign footer_cols = "1.4fr 1fr 1fr 1fr" -%}
+{%- else -%}
+  {%- assign footer_cols = "1.4fr 1fr 1fr" -%}
+{%- endif -%}
+<footer class="footer" style="grid-template-columns: {{ footer_cols }};">
+  <div class="col-bio">
+    <a class="nav-brand" href="{{ '/' | relative_url }}">
+      <span class="glyph">{{ site.data.author.initials }}</span>
+      <span>{{ site.data.author.name }}</span>
+    </a>
+    <p class="small" style="margin-top:12px;">{{ site.data.author.short_bio }}</p>
+  </div>
+
+  <div>
+    <h5>Site</h5>
+    <div class="links">
+      {%- for item in site.data.nav -%}
+        <a href="{{ item.url | relative_url }}">{{ item.label }}</a>
+      {%- endfor -%}
+      <a href="{{ '/tags/' | relative_url }}">Tags</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+  </div>
+
+  <div>
+    <h5>Connect</h5>
+    <div class="links">
+      <a href="{{ site.data.author.links.linkedin_url }}" rel="me">LinkedIn</a>
+      <a href="{{ site.data.author.links.github_url }}" rel="me">GitHub</a>
+      <a href="mailto:{{ site.data.author.links.email }}">Email</a>
+    </div>
+  </div>
+
+  {%- if site.newsletter.enabled -%}
+  <div>
+    <h5>Subscribe</h5>
+    <div class="links">
+      <span>Monthly newsletter on BC, AL, and migrations.</span>
+      {%- include newsletter-form.html size="sm" tag="footer" -%}
+    </div>
+  </div>
+  {%- endif -%}
+</footer>
